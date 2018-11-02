@@ -1,0 +1,62 @@
+{% load static %}
+{%load thumbnail%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <style>
+        @font-face {
+            font-family: IRANSans;
+            src: url({% static 'font/Fonts/Iranian Sans License.txt' %});
+        }
+
+        body {
+            font-family: IRANSans;
+        }
+        .album-cover{
+            /* height: 230px;*/
+            border-radius: 5px;
+        }
+        .album-title{
+            font-size:23px;
+            font-weight: bold;
+        }
+    </style>
+
+    <meta charset="UTF-8">
+    <title>home</title>
+</head>
+<body>
+<div class="row">
+    <div class="col s1"></div>
+
+    <div class='col s7'>
+        <div class="card-panel ">
+
+            <div class="center">{{ album.summary }}</div>
+            <hr>
+            <div class='row'> 
+                <div class="col s4">
+                {% thumbnail album.cover "200x200" crop="center" as im %}
+                    <img  class= 'album-cover'  src="{{im.url}}" height="{{im.height}}" width="{{im.width}}" alt='{{album.title}}{{album.summary}}'>
+                    {% endthumbnail %}
+                </div>
+                <div class="col s8">
+<h2 class='gray-text text-darken-3 album-title'>{{album.title}}</h2>
+                 </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div class='col s3'>
+        <div class="card-panel"> this is the firs test3</div>
+    </div>
+    <div class="col s1"></div>
+</div>
+</body>
+</html>
