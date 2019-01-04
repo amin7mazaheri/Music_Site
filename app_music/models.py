@@ -44,8 +44,7 @@ class Track(models.Model):
     music = models.FileField(upload_to='albums/%Y-%m-%d/')
 
     def __str__(self):
-        return self.titl
-        e
+        return self.title
 
 
 class Tag(models.Model):
