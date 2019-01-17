@@ -10,9 +10,9 @@ def date_spiliter(date):
 @register.filter
 def rating (rate):
 	html = '<fieldset class="rating">'
-	for i in range (5):
+	for i in range (5,0,-1):
 		active = None
-		if rate > i:
+		if rate < i:
 			acitve = style = 'color:#ffd700'
 		html +=f'''
 			 <input type="radio" id="star{i}" name="rating" value="{i}" /><label class = "full" {active}for="star{i}" title="Sucks big time - {i} star"></label>

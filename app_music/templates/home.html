@@ -45,10 +45,15 @@
                     <div class='gray-text text-darken-1'>created by {{album.released_date | date:'Y /n /j'}}
                      </div>
 
-<fieldset class="rating">
+
    {{album.rate| rating |safe}}
+{{album.rate}}
+</br>
+{%for tag in album.tag_set.all%}
+{{tag.title}}
+{%if not forloop.last%},{%endif%}
+{%endfor%}
 </fieldset>
-{{Album.rate}}
              </div>
 
 
